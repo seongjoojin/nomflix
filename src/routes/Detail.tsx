@@ -72,6 +72,21 @@ export const Overview = styled.p`
 	width: 50%;
 `;
 
+export const TabHeader = styled.ul`
+	padding: 16px 0;
+	display: flex;
+`;
+
+export const TabHeaderItem = styled.li<{ active: boolean }>`
+	font-size: 14px;
+	font-weight: ${props => (props.active ? 'bold' : 'normal')};
+	text-decoration: ${props => (props.active ? 'underline' : 'none')};
+	padding: 8px;
+	cursor: pointer;
+`;
+
+export const TabContent = styled.div``;
+
 interface Iparams {
 	id: string | undefined;
 }

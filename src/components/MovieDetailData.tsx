@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Helmet from 'react-helmet';
 import { MovieDetail } from 'api';
 import {
@@ -7,25 +7,36 @@ import {
 	Title,
 	Item,
 	Divider,
-	Overview
+	Overview,
+	TabHeader,
+	TabHeaderItem,
+	TabContent
 } from 'routes/Detail';
 
 interface IProps {
 	result: MovieDetail;
 }
 
-const MovieDetailData = ({ result }: IProps) => (
-	<Data>
-		<Helmet title={`${result.title} | Nomflix`} />
-		<a
-			href={`https://www.imdb.com/title/${result.imdb_id}`}
-			target="_blank"
-		>
-			<Title>{result.title}</Title>
+const MovieDetailData = ({ result }: IProps) => {
+	const useTabs = (initialTab: number, allTabs: any[]) => {
+		const [currentIndex, setCurrentIndex] = useState(initialTab);
+		return {
+			currentItem: allTabs[currentIndex],
+			changeIetm: setCurrentIndex
+		};
+	};
+	return (
+		<Data>
+			<Helmet title={`${result.title} | Nomflix`} />
+			<Title>
+				<a href={`https://www.imdb.com/title/${result.imdb_id}`}>
+					{result.title}
+				</a>
+			</Title>
 			<ItemContainer>
 				<Item>{result.release_date.substring(0, 4)}</Item>
 				<Divider>•</Divider>
-				<Item>{result.runtime} min</Item>
+				<Item>{result.runtime}</Item>
 				<Divider>•</Divider>
 				<Item>
 					{result.genres &&
@@ -37,8 +48,15 @@ const MovieDetailData = ({ result }: IProps) => (
 				</Item>
 			</ItemContainer>
 			<Overview>{result.overview}</Overview>
-		</a>
-	</Data>
-);
+			<TabHeader>
+				<TabHeaderItem active={true}>YT Videos</TabHeaderItem>
+				<TabHeaderItem active={false}>
+					Production Company & Countries
+				</TabHeaderItem>
+				<TabContent></TabContent>
+			</TabHeader>
+		</Data>
+	);
+};
 
 export default MovieDetailData;
