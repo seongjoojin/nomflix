@@ -16,23 +16,28 @@ interface IProps {
 
 const TVDetailData = ({ result }: IProps) => (
 	<Data>
-		<Helmet title={`${result.original_name} | Nomflix`} />
-		<Title>{result.original_name}</Title>
-		<ItemContainer>
-			<Item>{result.first_air_date.substring(0, 4)}</Item>
-			<Divider>•</Divider>
-			<Item>{result.episode_run_time[0]} min</Item>
-			<Divider>•</Divider>
-			<Item>
-				{result.genres &&
-					result.genres.map((genre, index) =>
-						index === result.genres.length - 1
-							? genre.name
-							: `${genre.name} / `
-					)}
-			</Item>
-		</ItemContainer>
-		<Overview>{result.overview}</Overview>
+		<Helmet title={`${result.name} | Nomflix`} />
+		<a
+			href={`https://www.imdb.com/title/${result.external_ids.imdb_id}`}
+			target="_blank"
+		>
+			<Title>{result.name}</Title>
+			<ItemContainer>
+				<Item>{result.first_air_date.substring(0, 4)}</Item>
+				<Divider>•</Divider>
+				<Item>{result.episode_run_time[0]} min</Item>
+				<Divider>•</Divider>
+				<Item>
+					{result.genres &&
+						result.genres.map((genre, index) =>
+							index === result.genres.length - 1
+								? genre.name
+								: `${genre.name} / `
+						)}
+				</Item>
+			</ItemContainer>
+			<Overview>{result.overview}</Overview>
+		</a>
 	</Data>
 );
 

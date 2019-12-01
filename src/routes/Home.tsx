@@ -65,7 +65,7 @@ const Home = () => {
 										key={movie.id}
 										id={movie.id}
 										imageURL={movie.poster_path}
-										title={movie.original_title}
+										title={movie.title}
 										rating={movie.vote_average}
 										year={movie.release_date.substring(
 											0,
@@ -83,7 +83,7 @@ const Home = () => {
 									key={movie.id}
 									id={movie.id}
 									imageURL={movie.poster_path}
-									title={movie.original_title}
+									title={movie.title}
 									rating={movie.vote_average}
 									year={movie.release_date.substring(0, 4)}
 									isMovie={true}
@@ -98,7 +98,7 @@ const Home = () => {
 									key={movie.id}
 									id={movie.id}
 									imageURL={movie.poster_path}
-									title={movie.original_title}
+									title={movie.title}
 									rating={movie.vote_average}
 									year={movie.release_date.substring(0, 4)}
 									isMovie={true}

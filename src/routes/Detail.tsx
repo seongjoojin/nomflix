@@ -110,7 +110,7 @@ const useFetch = (id: any) => {
 };
 
 const renderData = (result: MovieDetail | TvDetail) => {
-	if ('original_title' in result) {
+	if ('title' in result) {
 		return <MovieDetailData result={result} />;
 	} else if ('original_name' in result) {
 		return <TVDetailData result={result} />;

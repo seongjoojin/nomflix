@@ -21,7 +21,7 @@ const Grid = styled.div`
 
 interface IProps {
 	title: string;
-	children: JSX.Element[] | JSX.Element;
+	children: ReactChildren | JSX.Element[];
 }
 
 const Section = ({ title, children }: IProps) => (

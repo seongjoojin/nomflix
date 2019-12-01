@@ -4,7 +4,7 @@ const API: AxiosInstance = Axios.create({
 	baseURL: 'https://api.themoviedb.org/3/',
 	params: {
 		api_key: process.env.REACT_APP_TMDB_KEY,
-		language: 'en-US'
+		language: 'ko-KR'
 	}
 });
 
@@ -176,6 +176,17 @@ interface Season {
 	season_number: number;
 }
 
+interface ExternalIds {
+	imdb_id: string | null;
+	freebase_mid: string | null;
+	freebase_id: string | null;
+	tvdb_id: number | null;
+	tvrage_id: number | null;
+	facebook_id: string | null;
+	instagram_id: string | null;
+	twitter_id: string | null;
+}
+
 export interface TvDetail {
 	backdrop_path: string;
 	created_by: TvProducer[];
@@ -205,6 +216,7 @@ export interface TvDetail {
 	type: string;
 	vote_average: number;
 	vote_count: number;
+	external_ids: ExternalIds;
 }
 
 interface ITvAPI {
@@ -222,7 +234,7 @@ export const tvAPI: ITvAPI = {
 	showDetail: (id: number) =>
 		API.get(`tv/${id}`, {
 			params: {
-				append_to_response: 'videos'
+				append_to_response: 'videos,external_ids'
 			}
 		}),
 	search: (term: string) =>
