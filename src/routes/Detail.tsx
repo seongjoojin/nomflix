@@ -53,6 +53,9 @@ export const Data = styled.div`
 
 export const Title = styled.h3`
 	font-size: 32px;
+	a {
+		text-decoration: underline;
+	}
 `;
 
 export const ItemContainer = styled.div`
@@ -66,26 +69,47 @@ export const Divider = styled.span`
 `;
 
 export const Overview = styled.p`
-	font-size: 14px;
+	font-size: 16px;
 	opacity: 0.7;
 	line-height: 1.5;
 	width: 50%;
 `;
 
-export const TabHeader = styled.ul`
+export const TabHeader = styled.div`
 	padding: 16px 0;
 	display: flex;
 `;
 
-export const TabHeaderItem = styled.li<{ active: boolean }>`
+export const TabHeaderItem = styled.button<{ active: boolean }>`
 	font-size: 14px;
 	font-weight: ${props => (props.active ? 'bold' : 'normal')};
 	text-decoration: ${props => (props.active ? 'underline' : 'none')};
 	padding: 8px;
+	background: none;
+	outline: none;
+	border: none;
+	color: #fff;
 	cursor: pointer;
 `;
 
 export const TabContent = styled.div``;
+
+export const TabContentItem = styled.div<{ active: boolean }>`
+	display: ${props => (props.active ? 'underline' : 'none')};
+`;
+
+export const TabContentText = styled.p`
+	margin-bottom: 16px;
+	a {
+		text-decoration: underline;
+	}
+`;
+
+export const TabContentTitle = styled.h6`
+	margin-bottom: 16px;
+	font-size: 14px;
+	font-weight: bold;
+`;
 
 interface Iparams {
 	id: string | undefined;

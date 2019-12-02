@@ -54,6 +54,21 @@ interface Language {
 	name: string;
 }
 
+export interface VideosResult {
+	id: string;
+	iso_639_1: string;
+	iso_3166_1: string;
+	key: string;
+	name: string;
+	site: string;
+	size: number;
+	type: string;
+}
+
+interface Videos {
+	results: VideosResult[];
+}
+
 export interface MovieDetail {
 	adult: boolean;
 	backdrop_path: string;
@@ -79,6 +94,7 @@ export interface MovieDetail {
 	video: boolean;
 	vote_average: number;
 	vote_count: number;
+	videos: Videos;
 }
 
 interface IMoviesAPI {
@@ -217,6 +233,7 @@ export interface TvDetail {
 	vote_average: number;
 	vote_count: number;
 	external_ids: ExternalIds;
+	videos: Videos;
 }
 
 interface ITvAPI {
