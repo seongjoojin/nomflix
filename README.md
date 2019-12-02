@@ -6,9 +6,7 @@ Building a Movie Discovery App (React, React Hooks, Typescript, Redux)
 
 -   [x] IMDB Link
 -   [x] Tabs inside of Movie / Show Details (YT Videos, Production Company & Countries)
--   [ ] Collections Link
--   [ ] /collections Route
--   [ ] On TV Show, show seasons and creators
+-   [x] On TV Show, show seasons
 
 # Preview:
 

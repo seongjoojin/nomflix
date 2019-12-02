@@ -111,6 +111,31 @@ export const TabContentTitle = styled.h6`
 	font-weight: bold;
 `;
 
+export const TVSeasonContainer = styled.ul`
+	display: flex;
+`;
+
+export const TVSeasonContent = styled.li`
+	display: flex;
+`;
+
+export const TVSeasonPoster = styled.div<{ img_url: string | null }>`
+	width: 120px;
+	height: 160px;
+	background-image: ${props =>
+		props.img_url
+			? `url(https://image.tmdb.org/t/p/original${props.img_url})`
+			: ''};
+	background-position: center center;
+	background-size: cover;
+	border-radius: 5px;
+	margin-right: 8px;
+`;
+
+export const TVSeasonText = styled.p`
+	margin-right: 8px;
+`;
+
 interface Iparams {
 	id: string | undefined;
 }

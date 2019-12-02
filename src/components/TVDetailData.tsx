@@ -13,7 +13,11 @@ import {
 	TabContent,
 	TabContentItem,
 	TabContentText,
-	TabContentTitle
+	TabContentTitle,
+	TVSeasonContainer,
+	TVSeasonContent,
+	TVSeasonPoster,
+	TVSeasonText
 } from 'routes/Detail';
 
 interface IProps {
@@ -32,6 +36,9 @@ const TVDetailData = ({ result }: IProps) => {
 		{ tab: 'YT Videos' },
 		{
 			tab: 'Production Company & Countries'
+		},
+		{
+			tab: 'TV Seasons'
 		}
 	];
 	const { currentIndex, changeIetm } = useTabs(0);
@@ -110,6 +117,28 @@ const TVDetailData = ({ result }: IProps) => {
 								<TabContentText>
 									{result.origin_country[0]}
 								</TabContentText>
+							</>
+						)}
+						{section.tab === 'TV Seasons' && (
+							<>
+								{result.seasons.length > 0 && (
+									<TabContentTitle>
+										TV Seasons
+									</TabContentTitle>
+								)}
+								<TVSeasonContainer>
+									{result.seasons.length > 0 &&
+										result.seasons.map(season => (
+											<TVSeasonContent>
+												<TVSeasonPoster
+													img_url={season.poster_path}
+												/>
+												<TVSeasonText>
+													{season.name}
+												</TVSeasonText>
+											</TVSeasonContent>
+										))}
+								</TVSeasonContainer>
 							</>
 						)}
 					</TabContentItem>
