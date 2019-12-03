@@ -10,4 +10,4 @@ Building a Movie Discovery App (React, React Hooks, Typescript, Redux)
 
 # Preview:
 
-Try it on [netlify]()
+Try it on [github page](https://seongjoojin.github.io/nomflix/#/)
